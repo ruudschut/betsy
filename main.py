@@ -1,7 +1,7 @@
 __winc_id__ = "d7b474e9b3a54d23bca54879a4f1855b"
 __human_name__ = "Betsy Webshop"
 
-from models import db, User, Tag, Product, Transaction
+from models import db, User, Tag, Product, Transactie
 from peewee import JOIN
 
 def search(term):
@@ -48,7 +48,7 @@ def update_stock(product_id, new_quantity):
     query.execute()    
 
 def purchase_product(product_id, buyer_id, quantity):
-    #Transaction.create(user= buyer_id, purchase_product= product_id, purchased_quantity = quantity)
+    Transactie.create(user= buyer_id, purchased_product_id= product_id, purchased_quantity = quantity)
     query = (
         Product.update(quantity_in_stock= (Product.quantity_in_stock - quantity))
         .where(Product.id == product_id)

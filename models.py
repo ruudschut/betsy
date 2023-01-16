@@ -23,7 +23,7 @@ class Product(BaseModel):
     tag = ForeignKeyField(Tag)
 
 
-class Transaction(BaseModel):
+class Transactie(BaseModel):
     user = ForeignKeyField(User)
-    purchased_product = ForeignKeyField(Product)
+    purchased_product_id = ForeignKeyField(Product)
     purchased_quantity = IntegerField()

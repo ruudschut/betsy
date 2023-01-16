@@ -1,4 +1,4 @@
-from models import (db, User, Tag, Product, Transaction)
+from models import (db, User, Tag, Product, Transactie)
 import os
 
 def delete_database():
@@ -15,7 +15,7 @@ def populate_test_data():
             User,
             Tag,
             Product,
-            Transaction
+            Transactie
         ]
     )
 
@@ -34,6 +34,6 @@ def populate_test_data():
         Product.create(name = product[0], description = product[1], price_per_unit = product[2], quantity_in_stock = product[3], owner = product[4], tag = product[5])
 
     for transaction in transactions:
-        Transaction.create(user = transaction[0], purchased_product = transaction[1], purchased_quantity = transaction[2])    
+        Transactie.create(user = transaction[0], purchased_product_id = transaction[1], purchased_quantity = transaction[2])    
 
     db.close()    
