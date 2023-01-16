@@ -26,4 +26,4 @@ class Product(BaseModel):
 class Transaction(BaseModel):
     user = ForeignKeyField(User)
     purchased_product = ForeignKeyField(Product)
-    purchased_quantity = DecimalField()
+    purchased_quantity = IntegerField()
